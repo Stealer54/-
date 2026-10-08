@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Подача анкеты</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="form-card">
+
+        <div class="header">
+            <div class="label">АНКЕТА</div>
+
+            <h1>Подача анкеты</h1>
+
+            <p>
+                Заполните все поля анкеты и отправьте её на проверку.
+            </p>
+        </div>
+
+
+        <form id="anketaForm">
+
+            <div class="fields">
+
+                <div class="field">
+                    <label>Игровой ник</label>
+                    <input type="text" name="nickname" placeholder="Nick_Name" required>
+                </div>
+
+                <div class="field">
+                    <label>Игровой уровень</label>
+                    <input type="text" name="level" placeholder="Например: 20" required>
+                </div>
+
+                <div class="field">
+                    <label>ID Аккаунта</label>
+                    <input type="text" name="account_id" placeholder="Введите ID" required>
+                </div>
+
+                <div class="field">
+                    <label>Возраст</label>
+                    <input type="text" name="age" placeholder="Введите возраст" required>
+                </div>
+
+                <div class="field">
+                    <label>Имя</label>
+                    <input type="text" name="name" placeholder="Введите имя" required>
+                </div>
+
+                <div class="field">
+                    <label>Город</label>
+                    <input type="text" name="city" placeholder="Введите город" required>
+                </div>
+
+                <div class="field">
+                    <label>Дискорд</label>
+                    <input type="text" name="discord" placeholder="username" required>
+                </div>
+
+                <div class="field">
+                    <label>Онлайн</label>
+                    <input type="text" name="online" placeholder="Например: 5-6 часов" required>
+                </div>
+
+                <div class="field full">
+                    <label>Ссылка форума</label>
+                    <input type="url" name="forum" placeholder="https://..." required>
+                </div>
+
+                <div class="field full">
+                    <label>Ссылка ВК</label>
+                    <input type="url" name="vk" placeholder="https://vk.com/..." required>
+                </div>
+
+                <div class="field full">
+                    <label>Ссылка на РП БИО</label>
+                    <input type="url" name="rp_bio" placeholder="https://..." required>
+                </div>
+
+                <div class="field full">
+                    <label>Ссылка на личное дело</label>
+                    <input type="url" name="personal_file" placeholder="https://..." required>
+                </div>
+
+                <div class="field full">
+                    <label>Причина постановления</label>
+                    <input
+                        type="text"
+                        name="reason"
+                        placeholder="Собеседование, Доверенное лицо, Передача"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Занимал ли высокие должности?</label>
+                    <input
+                        type="text"
+                        name="high_position"
+                        placeholder="Да / Нет"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label>
+                        Привязан ли аккаунт к почте / Google Аутентификатору / ВК ЛК?
+                    </label>
+
+                    <input
+                        type="text"
+                        name="linked"
+                        placeholder="Да / Нет"
+                        required
+                    >
+                </div>
+
+                <div class="field full">
+                    <label>
+                        Имеются ли твинки на 05 сервере и были ли на них баны?
+                    </label>
+
+                    <input
+                        type="text"
+                        name="twinks"
+                        placeholder="Да / Нет, если да — Nick_Name твинков"
+                        required
+                    >
+                </div>
+
+                <div class="field full">
+                    <label>Должность, на которую будет поставлен</label>
+
+                    <input
+                        type="text"
+                        name="position"
+                        placeholder="Введите должность"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                Отправить анкету
+                <span>→</span>
+            </button>
+
+            <div id="success" class="success">
+                Анкета подготовлена к отправке.
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="footer">
+        Форма подачи анкеты
+    </div>
+
+</div>
+
+
+<script>
+
+const form = document.getElementById("anketaForm");
+const success = document.getElementById("success");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    success.classList.add("show");
+
+    success.textContent =
+        "Анкета заполнена. Подключение Discord-бота будет добавлено следующим этапом.";
+
+});
+
+</script>
+
+</body>
+</html>
