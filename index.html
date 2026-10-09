@@ -1,192 +1,239 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0d12">
 
     <title>Подача анкеты</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .success {
+            display: none;
+            margin-top: 18px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .success.show {
+            display: block;
+        }
+
+        .success.loading {
+            color: #cbd5e1;
+            background: #1e293b;
+        }
+
+        .success.ok {
+            color: #86efac;
+            background: #14271d;
+        }
+
+        .success.error {
+            color: #fca5a5;
+            background: #321819;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+    </style>
 </head>
 
 <body>
-
 <div class="container">
-
     <div class="form-card">
-
         <div class="header">
             <div class="label">АНКЕТА</div>
-
             <h1>Подача анкеты</h1>
-
-            <p>
-                Заполните все поля анкеты и отправьте её на проверку.
-            </p>
+            <p>Заполните все поля анкеты и отправьте её на проверку.</p>
         </div>
 
-
         <form id="anketaForm">
-
             <div class="fields">
 
                 <div class="field">
                     <label>Игровой ник</label>
-                    <input type="text" name="nickname" placeholder="Nick_Name" required>
+                    <input type="text" name="nickname"
+                           placeholder="Nick_Name" maxlength="100" required>
                 </div>
 
                 <div class="field">
                     <label>Игровой уровень</label>
-                    <input type="text" name="level" placeholder="Например: 20" required>
+                    <input type="text" name="level"
+                           placeholder="Например: 20" maxlength="50" required>
                 </div>
 
                 <div class="field">
                     <label>ID Аккаунта</label>
-                    <input type="text" name="account_id" placeholder="Введите ID" required>
+                    <input type="text" name="account_id"
+                           placeholder="Введите ID" maxlength="100" required>
                 </div>
 
                 <div class="field">
                     <label>Возраст</label>
-                    <input type="text" name="age" placeholder="Введите возраст" required>
+                    <input type="text" name="age"
+                           placeholder="Введите возраст" maxlength="30" required>
                 </div>
 
                 <div class="field">
                     <label>Имя</label>
-                    <input type="text" name="name" placeholder="Введите имя" required>
+                    <input type="text" name="name"
+                           placeholder="Введите имя" maxlength="100" required>
                 </div>
 
                 <div class="field">
                     <label>Город</label>
-                    <input type="text" name="city" placeholder="Введите город" required>
+                    <input type="text" name="city"
+                           placeholder="Введите город" maxlength="100" required>
                 </div>
 
                 <div class="field">
                     <label>Дискорд</label>
-                    <input type="text" name="discord" placeholder="username" required>
+                    <input type="text" name="discord"
+                           placeholder="username" maxlength="100" required>
                 </div>
 
                 <div class="field">
                     <label>Онлайн</label>
-                    <input type="text" name="online" placeholder="Например: 5-6 часов" required>
+                    <input type="text" name="online"
+                           placeholder="Например: 5-6 часов" maxlength="100" required>
                 </div>
 
                 <div class="field full">
                     <label>Ссылка форума</label>
-                    <input type="url" name="forum" placeholder="https://..." required>
+                    <input type="url" name="forum"
+                           placeholder="https://..." maxlength="500" required>
                 </div>
 
                 <div class="field full">
                     <label>Ссылка ВК</label>
-                    <input type="url" name="vk" placeholder="https://vk.com/..." required>
+                    <input type="url" name="vk"
+                           placeholder="https://vk.com/..." maxlength="500" required>
                 </div>
 
                 <div class="field full">
                     <label>Ссылка на РП БИО</label>
-                    <input type="url" name="rp_bio" placeholder="https://..." required>
+                    <input type="url" name="rp_bio"
+                           placeholder="https://..." maxlength="500" required>
                 </div>
 
                 <div class="field full">
                     <label>Ссылка на личное дело</label>
-                    <input type="url" name="personal_file" placeholder="https://..." required>
+                    <input type="url" name="personal_file"
+                           placeholder="https://..." maxlength="500" required>
                 </div>
 
                 <div class="field full">
                     <label>Причина постановления</label>
-                    <input
-                        type="text"
-                        name="reason"
-                        placeholder="Собеседование, Доверенное лицо, Передача"
-                        required
-                    >
+                    <input type="text" name="reason"
+                           placeholder="Собеседование, Доверенное лицо, Передача"
+                           maxlength="200" required>
                 </div>
 
                 <div class="field">
                     <label>Занимал ли высокие должности?</label>
-                    <input
-                        type="text"
-                        name="high_position"
-                        placeholder="Да / Нет"
-                        required
-                    >
+                    <input type="text" name="high_position"
+                           placeholder="Да / Нет" maxlength="50" required>
                 </div>
 
                 <div class="field">
-                    <label>
-                        Привязан ли аккаунт к почте / Google Аутентификатору / ВК ЛК?
-                    </label>
-
-                    <input
-                        type="text"
-                        name="linked"
-                        placeholder="Да / Нет"
-                        required
-                    >
+                    <label>Привязан ли аккаунт к почте / Google Аутентификатору / ВК ЛК?</label>
+                    <input type="text" name="linked"
+                           placeholder="Да / Нет" maxlength="200" required>
                 </div>
 
                 <div class="field full">
-                    <label>
-                        Имеются ли твинки на 05 сервере и были ли на них баны?
-                    </label>
-
-                    <input
-                        type="text"
-                        name="twinks"
-                        placeholder="Да / Нет, если да — Nick_Name твинков"
-                        required
-                    >
+                    <label>Имеются ли твинки на 05 сервере и были ли на них баны?</label>
+                    <input type="text" name="twinks"
+                           placeholder="Да / Нет, если да — Nick_Name твинков"
+                           maxlength="500" required>
                 </div>
 
                 <div class="field full">
                     <label>Должность, на которую будет поставлен</label>
-
-                    <input
-                        type="text"
-                        name="position"
-                        placeholder="Введите должность"
-                        required
-                    >
+                    <input type="text" name="position"
+                           placeholder="Введите должность" maxlength="200" required>
                 </div>
 
             </div>
 
-
-            <button type="submit">
-                Отправить анкету
-                <span>→</span>
+            <button id="submitButton" type="submit">
+                Отправить анкету <span>→</span>
             </button>
 
-            <div id="success" class="success">
-                Анкета подготовлена к отправке.
-            </div>
-
+            <div id="success" class="success" role="status" aria-live="polite"></div>
         </form>
-
     </div>
 
-    <div class="footer">
-        Форма подачи анкеты
-    </div>
-
+    <div class="footer">Форма подачи анкеты</div>
 </div>
 
-
 <script>
-
 const form = document.getElementById("anketaForm");
-const success = document.getElementById("success");
+const statusBox = document.getElementById("success");
+const submitButton = document.getElementById("submitButton");
 
-form.addEventListener("submit", function(event) {
+/*
+ * Форма отправляет данные на сервер сайта по адресу /submit.
+ * Сервер сайта должен переслать их Discord-боту на Railway.
+ * Секретный ключ хранится только в переменных сервера,
+ * а не в этом HTML-файле.
+ */
 
+form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    success.classList.add("show");
+    if (!form.reportValidity()) {
+        return;
+    }
 
-    success.textContent =
-        "Анкета заполнена. Подключение Discord-бота будет добавлено следующим этапом.";
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
+    statusBox.className = "success show loading";
+    statusBox.textContent = "Отправляем анкету...";
+    submitButton.disabled = true;
+
+    try {
+        const response = await fetch("/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || result.success !== true) {
+            throw new Error(
+                result.error || "Не удалось отправить анкету."
+            );
+        }
+
+        statusBox.className = "success show ok";
+        statusBox.textContent = "✓ Анкета успешно отправлена на проверку!";
+        form.reset();
+
+    } catch (error) {
+        statusBox.className = "success show error";
+        statusBox.textContent =
+            "Не удалось отправить анкету. Возможно, сервер сайта ещё не подключён к Discord-боту. Попробуйте позже.";
+
+        console.error("Ошибка отправки анкеты:", error);
+
+    } finally {
+        submitButton.disabled = false;
+    }
 });
-
 </script>
-
 </body>
 </html>
+```
